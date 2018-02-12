@@ -14,6 +14,7 @@
 		<Item Name="PanelVIs" Type="Folder">
 			<Item Name="PictureCrop.vi" Type="VI" URL="../data/PictureCrop.vi"/>
 			<Item Name="TeamLookUP.vi" Type="VI" URL="../data/TeamLookUP.vi"/>
+			<Item Name="Edit.vi" Type="VI" URL="../data/Edit.vi"/>
 			<Item Name="Qr.vi" Type="VI" URL="../data/Qr.vi"/>
 		</Item>
 		<Item Name="SubVIs" Type="Folder">
@@ -24,6 +25,7 @@
 			<Item Name="SelectTeam.vi" Type="VI" URL="../SelectTeam.vi"/>
 			<Item Name="GetTeamData.vi" Type="VI" URL="../GetTeamData.vi"/>
 			<Item Name="FormatData.vi" Type="VI" URL="../FormatData.vi"/>
+			<Item Name="GetTeamData4Edit.vi" Type="VI" URL="../GetTeamData4Edit.vi"/>
 		</Item>
 		<Item Name="Prep" Type="Folder">
 			<Item Name="FRCweb2iniTeamList.vi" Type="VI" URL="../FRCweb2iniTeamList.vi"/>
@@ -32,6 +34,8 @@
 		</Item>
 		<Item Name="ScoutingMain.vi" Type="VI" URL="../ScoutingMain.vi"/>
 		<Item Name="Scouting.ini" Type="Document" URL="../Scouting.ini"/>
+		<Item Name="ImagesCleanUp.vi" Type="VI" URL="../ImagesCleanUp.vi"/>
+		<Item Name="DataCleanUp.vi" Type="VI" URL="../DataCleanUp.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
