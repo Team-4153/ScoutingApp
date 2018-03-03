@@ -1,16 +1,50 @@
 <!DOCTYPE html>
+<! ********************************************************************************************
+			DO NOT MODIFY CODE EXCEPT IN DESIGNATED AREA (FORM AND QR STRING GENERATOR BELOW)
+ *********************************************************************************************>
+ 
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-touch-fullscreen" content="yes" />
-<style type="text/css">
-  html { width:100%; height: 100% }
-  body { width:100%; height: 100%; margin: 0px; padding: 0px }
-  div#qrdiv {width:200px; height:200px}
-</style>
+
 
 <script type="text/javascript">
+
+function doqr() {
+    d = document;
+    ecclevel = 4;//d.qrinp.ECC.value;
+	
+//***************************************************************************************************************************************** 
+//										 MODIFY THIS LINE TO INCLUDE ALL FORM ANSWERS IN QR CODE 	
+//**************************************************************************************************************************************>
+    qf = genframe("Team #: " + d.qrinp.tnum.value +"\nScale " + d.qrinp.scale.checked +"\nAuto " + d.qrinp.Auto.value + "\nclimb " + d.qrinp.climb.value + "\nPower Cubes in Scale " + d.qrinp.PC_in_Scale.value + "\nNotes " + d.qrinp.notes.value);
+
+//***************************************************************************************************************************************** 
+//										 DO NOT MODIFY ANY OTHER JAVASCRIPT CODE
+//**************************************************************************************************************************************>
+    qrc.lineWidth=1;
+
+    var i,j;
+    px = wd;
+    if( ht < wd )
+        px = ht;
+    px /= width+10;
+    px=Math.round(px - 0.5);
+    qrc.clearRect(0,0,wd,ht);
+    qrc.fillStyle = '#fff';
+    qrc.fillRect(0,0,px*(width+8),px*(width+8));
+    qrc.fillStyle = '#000';
+    for( i = 0; i < width; i++ )
+        for( j = 0; j < width; j++ )
+            if( qf[j*width+i] )
+                qrc.fillRect(px*(4+i),px*(4+j),px,px)
+saveImage();				
+document.qrinp.reset();
+setupqr();
+}
+
 
 // alignment pattern
 adelta = [
@@ -738,31 +772,7 @@ function setupqr(){
 
 }
 
-function doqr() {
-    d = document;
-    ecclevel = 4;//d.qrinp.ECC.value;
-	
-	
-    qf = genframe("Team Name: " + d.qrinp.Tname.value + "\nTeam #: " + d.qrinp.tnum.value +"\nScale " + d.qrinp.scale.checked +"\nClimb " + d.qrinp.climb.value);
 
-    qrc.lineWidth=1;
-
-    var i,j;
-    px = wd;
-    if( ht < wd )
-        px = ht;
-    px /= width+10;
-    px=Math.round(px - 0.5);
-    qrc.clearRect(0,0,wd,ht);
-    qrc.fillStyle = '#fff';
-    qrc.fillRect(0,0,px*(width+8),px*(width+8));
-    qrc.fillStyle = '#000';
-    for( i = 0; i < width; i++ )
-        for( j = 0; j < width; j++ )
-            if( qf[j*width+i] )
-                qrc.fillRect(px*(4+i),px*(4+j),px,px)
-saveImage()				
-}
 
 
 
@@ -770,36 +780,125 @@ saveImage()
  function saveImage() {
 				
 		var canvas = document.getElementById("qrcanv");
-		var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); 
+		var image = canvas.toDataURL("image/jpg").replace("image/png", "image/octet-stream"); 
 	
 		var anchor = document.createElement('a');
 
-		anchor.setAttribute('download', document.qrinp.tnum.value+'.png');
+		anchor.setAttribute('download', document.qrinp.tnum.value+'.jpg');
 		anchor.setAttribute('href', image);
 		document.body.appendChild(anchor);
 		anchor.click();
 
 	}
-		
+//*****************************************************************************************************
+//				FUNCTIONS FOR CUSTOM FORM ACTIONS. THOSE CAN BE MODIFIED AS NEEDED
+//*****************************************************************************************************
+						
+function PCSp(){
+	document.qrinp.PC_in_Scale.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Scale.valueAsNumber+1));
+}
+function PCSm(){
+	document.qrinp.PC_in_Scale.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Scale.valueAsNumber-1));
+}
+//*****************************************************************************************************
+//								END OF CUSTOM FUNCTIONS
+//*****************************************************************************************************
+
+
 
         </script>
+<meta charset="utf-8">
+<title>Project Y Scouting</title>
 </head>
 <body onload="setupqr()">
 <div id="qrdiv" position:absolute; width:360px; height:360px">
    
+<! ********************************************************************************************
+				MODIFY CODE BELOW TO CUSTOMIZE FORM
+ *********************************************************************************************>
 
   <form name="qrinp">
-    <p>
-      
-   
-    Team name:
-    <textarea name="Tname" size=2953></textarea>
-    <br>
-    Team number:
-    <input type="numeric" size="5" name="tnum" size=2953> </input>
-    <br>
-     <input type="checkbox" name="scale" >scale</input>
+    <p><img src="colorlogo.jpg" width="110" height="125" hspace="150"></p>
+    <p><font size="7"><strong>Project Y Scouting</strong></font></p>
+    <p><font size="6"><strong>Team number:</strong></font>
+    <select name="tnum" style="font-size:20px; font-weight:normal">
+   	   		<option value="">Select team number </option>
+		<option value="8">8, Paly Robotics</option>
+		<option value="60">60, Bionic Bulldogs</option>
+		<option value="254">254, The Cheesy Poofs</option>
+		<option value="498">498, The Cobra Commanders</option>
+		<option value="585">585, Cyber Penguins</option>
+		<option value="668">668, The Apes of Wrath</option>
+		<option value="751">751, barn2robotics</option>
+		<option value="842">842, Falcon Robotics</option>
+		<option value="987">987, HIGHROLLERS</option>
+		<option value="991">991, BroncoBotics</option>
+		<option value="996">996, Mecha Knights</option>
+		<option value="1011">1011, CRUSH</option>
+		<option value="1138">1138, Eagle Engineering</option>
+		<option value="1165">1165, Team Paradise</option>
+		<option value="1492">1492, Team CAUTION</option>
+		<option value="1828">1828, BoxerBots</option>
+		<option value="1836">1836, The MilkenKnights</option>
+		<option value="2073">2073, EagleForce</option>
+		<option value="2122">2122, Team Tators</option>
+		<option value="2135">2135, Presentation Invasion</option>
+		<option value="2375">2375, Dragon Robotics</option>
+		<option value="2403">2403, Plasma Robotics</option>
+		<option value="2437">2437, Lancer Robotics</option>
+		<option value="2478">2478, Westwood Robotics</option>
+		<option value="2486">2486, CocoNuts</option>
+		<option value="2637">2637, Phantom Catz</option>
+		<option value="2840">2840, Blue Tide</option>
+		<option value="3009">3009, High Scalers</option>
+		<option value="3019">3019, Firebirds</option>
+		<option value="3187">3187, Arcadia Titan Robotics</option>
+		<option value="3250">3250, Kennedy Robotics</option>
+		<option value="3309">3309, Friarbots</option>
+		<option value="3501">3501, Firebots</option>
+		<option value="3577">3577, Saint's Robotics</option>
+		<option value="3785">3785, ROCK'EM SHOCK'EM ROBOTICS</option>
+		<option value="3853">3853, Pridetronics</option>
+		<option value="3925">3925, Circuit of Life</option>
+		<option value="4146">4146, Sabercats</option>
+		<option value="4153">4153, Project Y</option>
+		<option value="4183">4183, Bit Buckets</option>
+		<option value="4565">4565, Coyotes</option>
+		<option value="4603">4603, Leones Francés</option>
+		<option value="4792">4792, Desert Storm</option>
+		<option value="5059">5059, The Midnight Cicadas</option>
+		<option value="5539">5539, DVHS Cyborgs</option>
+		<option value="6060">6060, Circuit Serpents</option>
+		<option value="6127">6127, BHS Pumatrons</option>
+		<option value="6314">6314, DM Robotics The WolfPack</option>
+		<option value="6413">6413, Degrees of Freedom</option>
+		<option value="6482">6482, Wildcat Robotics</option>
+		<option value="6518">6518, JagBots</option>
+		<option value="6530">6530, Ra</option>
+		<option value="6560">6560, Charging Champions</option>
+		<option value="6585">6585, Hózhóogo Naasháa Doo (Walk in Beauty)</option>
+		<option value="6656">6656, Ryu Botics</option>
+		<option value="6871">6871, QC DogSquad</option>
+		<option value="6931">6931, The Red Company</option>
+		<option value="6968">6968, Team Pi</option>
+		<option value="7017">7017, Fellowship of the Gear</option>
+		<option value="7059">7059, Bot-E Builders</option>
+		<option value="7214">7214, Tiger-Ops Robotics</option>
+
+    </select>
     </p>
+
+      <font size="4">
+      <p>
+      <input type="checkbox" name="scale" >Scale</input>
+    </p>
+     <p>Auto 
+    <select name="Auto">
+   	    <option value="none"> None</option>
+	    <option value="line"> Cross the line </option>
+    	<option value="switch"> Switch </option> 
+      	<option value="scale"> Scale </option> 
+    </select>
     <p>Climb 
     <select name="climb">
 	    <option value="no"> No </option>
@@ -807,7 +906,23 @@ saveImage()
     </select>
     <br>
     </p>
-    <input type="button" value="Save" onclick="doqr()"/>
+    <p>
+   Number of power cubes in scale: <input type="number" name="PC_in_Scale" value=0 max=60 min=0 style="width:40px;"></input> <input type="button" onclick="PCSm()" value="-1"> <input type="button" onclick="PCSp()" value="+1">
+   </p>
+    
+    </font>
+    <p>
+    Notes: <br><textarea name="notes" cols="40" rows="5" maxlength="200" style="position: relative; left:50px;"></textarea>
+    </p>
+    
+<! ********************************************************************************************
+					END OF CUSTOMIZATION SECTION, KEEP BUTTONS BELOW
+ *********************************************************************************************>
+
+    <input type="button" style="position: relative; left:50px;height:150px;width:150px;font-size:20px" value="Save" onclick="doqr()"/>
+
+    <input name="Reset" type="reset" style="position: relative; left:90px;height:150px;width:150px;font-size:20px" onclick="document.qrinp.reset()" value="Clear"/>
+ 
   </form>
 
       <canvas id="qrcanv"}>No Canvas Support?
