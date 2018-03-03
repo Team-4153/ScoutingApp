@@ -30,6 +30,8 @@
 			<Item Name="ImagesCleanUp.vi" Type="VI" URL="../ImagesCleanUp.vi"/>
 			<Item Name="DataCleanUp.vi" Type="VI" URL="../DataCleanUp.vi"/>
 			<Item Name="GetTeamsList.vi" Type="VI" URL="../GetTeamsList.vi"/>
+			<Item Name="GetData.vi" Type="VI" URL="../GetData.vi"/>
+			<Item Name="AndOr.vi" Type="VI" URL="../AndOr.vi"/>
 		</Item>
 		<Item Name="Prep" Type="Folder">
 			<Item Name="FRCweb2iniTeamList.vi" Type="VI" URL="../FRCweb2iniTeamList.vi"/>
@@ -38,8 +40,6 @@
 		</Item>
 		<Item Name="ScoutingMain.vi" Type="VI" URL="../ScoutingMain.vi"/>
 		<Item Name="Scouting.ini" Type="Document" URL="../Scouting.ini"/>
-		<Item Name="GetData.vi" Type="VI" URL="../GetData.vi"/>
-		<Item Name="AndOr.vi" Type="VI" URL="../AndOr.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
