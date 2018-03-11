@@ -32,6 +32,7 @@
 			<Item Name="GetTeamsList.vi" Type="VI" URL="../GetTeamsList.vi"/>
 			<Item Name="GetData.vi" Type="VI" URL="../GetData.vi"/>
 			<Item Name="AndOr.vi" Type="VI" URL="../AndOr.vi"/>
+			<Item Name="SelectMatchForPDF.vi" Type="VI" URL="../SelectMatchForPDF.vi"/>
 		</Item>
 		<Item Name="Prep" Type="Folder">
 			<Item Name="FRCweb2iniTeamList.vi" Type="VI" URL="../FRCweb2iniTeamList.vi"/>
