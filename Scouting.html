@@ -12,14 +12,14 @@
 
 <script type="text/javascript">
 
-function doqr() {
+function doqr(save) {
     d = document;
     ecclevel = 4;//d.qrinp.ECC.value;
 	
 //***************************************************************************************************************************************** 
 //										 MODIFY THIS LINE TO INCLUDE ALL FORM ANSWERS IN QR CODE 	
 //**************************************************************************************************************************************>
-    qf = genframe("Team #: " + d.qrinp.tnum.value +"\nScale: " + d.qrinp.scale.checked +"\nAuto: " + d.qrinp.Auto.value + "\nclimb: " + d.qrinp.climb.value + "\nPower Cubes in Scale: " + d.qrinp.PC_in_Scale.value + "\nNotes: " + d.qrinp.notes.value);
+    qf = genframe("Team #: " + d.qrinp.tnum.value +"\nAuto: " + d.qrinp.Auto.value + "\n Cubes in Scale: " + d.qrinp.PC_in_Scale.value + "\n Cubes in Switches: " + d.qrinp.PC_in_Switches.value + "\n Cubes in Exchange: " + d.qrinp.PC_in_Exchange.value + "\n End Game/Climb: " + d.qrinp.climb.value + "\nNotes: " + d.qrinp.notes.value);
 
 //***************************************************************************************************************************************** 
 //										 DO NOT MODIFY ANY OTHER JAVASCRIPT CODE
@@ -40,11 +40,18 @@ function doqr() {
         for( j = 0; j < width; j++ )
             if( qf[j*width+i] )
                 qrc.fillRect(px*(4+i),px*(4+j),px,px)
-saveImage();				
-document.qrinp.reset();
-setupqr();
+if (save) {				
+	saveImage();				
+	document.qrinp.reset();
+	setupqr();
+	}
 }
 
+function fmrst() {
+	//prompt('test');
+	document.qrinp.reset();	
+	setupqr();
+}
 
 // alignment pattern
 adelta = [
@@ -780,16 +787,44 @@ function setupqr(){
  function saveImage() {
 				
 		var canvas = document.getElementById("qrcanv");
-		var image = canvas.toDataURL("image/jpg").replace("image/png", "image/octet-stream"); 
-	
-		var anchor = document.createElement('a');
+		var teamn = document.qrinp.tnum.value;
+		var image = canvas.toDataURL("image/jpg").replace("image/jpg", "image/octet-stream"); 
+		
+			
+		canvas.toBlob(function(blob) {
+			
+		      url = URL.createObjectURL(blob);
 
-		anchor.setAttribute('download', document.qrinp.tnum.value+'.jpg');
-		anchor.setAttribute('href', image);
+		  		var anchor = document.createElement('a');
+
+  		anchor.setAttribute('href', url);
+
+		anchor.setAttribute('download', teamn + '.jpg');
+	//	anchor.setAttribute('target', '_blank');
+		
 		document.body.appendChild(anchor);
 		anchor.click();
+		document.body.removeChild(anchor);
+		});
 
+		
+/*
+						
+		var anchor = document.createElement('a');
+
+//		anchor.setAttribute('href', image);
+  		anchor.setAttribute('href', url);
+
+		anchor.setAttribute('download', document.qrinp.tnum.value+'.jpg');
+	//	anchor.setAttribute('target', '_blank');
+		
+		document.body.appendChild(anchor);
+		anchor.click();
+		document.body.removeChild(anchor);
+*/
 	}
+	
+
 //*****************************************************************************************************
 //				FUNCTIONS FOR CUSTOM FORM ACTIONS. THOSE CAN BE MODIFIED AS NEEDED
 //*****************************************************************************************************
@@ -799,6 +834,20 @@ function PCSp(){
 }
 function PCSm(){
 	document.qrinp.PC_in_Scale.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Scale.valueAsNumber-1));
+}
+
+function PCWp(){
+	document.qrinp.PC_in_Switches.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Switches.valueAsNumber+1));
+}
+function PCWm(){
+	document.qrinp.PC_in_Switches.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Switches.valueAsNumber-1));
+}
+
+function PCEp(){
+	document.qrinp.PC_in_Exchange.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Exchange.valueAsNumber+1));
+}
+function PCEm(){
+	document.qrinp.PC_in_Exchange.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Exchange.valueAsNumber-1));
 }
 //*****************************************************************************************************
 //								END OF CUSTOM FUNCTIONS
@@ -823,106 +872,108 @@ function PCSm(){
     <p><font size="6"><strong>Team number:</strong></font>
     <select name="tnum" style="font-size:20px; font-weight:normal">
    	   		<option value="">Select team number </option>
-		<option value="8">8, Paly Robotics</option>
-		<option value="60">60, Bionic Bulldogs</option>
-		<option value="254">254, The Cheesy Poofs</option>
-		<option value="498">498, The Cobra Commanders</option>
-		<option value="585">585, Cyber Penguins</option>
-		<option value="668">668, The Apes of Wrath</option>
-		<option value="751">751, barn2robotics</option>
-		<option value="842">842, Falcon Robotics</option>
-		<option value="987">987, HIGHROLLERS</option>
-		<option value="991">991, BroncoBotics</option>
-		<option value="996">996, Mecha Knights</option>
+				<option value="118">118, Robonauts</option>
+		<option value="148">148, Robowranglers</option>
+		<option value="159">159, Alpine Robotics</option>
+		<option value="662">662, Rocky Mountain Robotics</option>
+		<option value="698">698, Hamilton Microbots</option>
 		<option value="1011">1011, CRUSH</option>
-		<option value="1138">1138, Eagle Engineering</option>
-		<option value="1165">1165, Team Paradise</option>
-		<option value="1492">1492, Team CAUTION</option>
-		<option value="1828">1828, BoxerBots</option>
-		<option value="1836">1836, The MilkenKnights</option>
-		<option value="2073">2073, EagleForce</option>
-		<option value="2122">2122, Team Tators</option>
-		<option value="2135">2135, Presentation Invasion</option>
-		<option value="2375">2375, Dragon Robotics</option>
-		<option value="2403">2403, Plasma Robotics</option>
-		<option value="2437">2437, Lancer Robotics</option>
-		<option value="2478">2478, Westwood Robotics</option>
-		<option value="2486">2486, CocoNuts</option>
-		<option value="2637">2637, Phantom Catz</option>
-		<option value="2840">2840, Blue Tide</option>
-		<option value="3009">3009, High Scalers</option>
-		<option value="3019">3019, Firebirds</option>
-		<option value="3187">3187, Arcadia Titan Robotics</option>
-		<option value="3250">3250, Kennedy Robotics</option>
-		<option value="3309">3309, Friarbots</option>
-		<option value="3501">3501, Firebots</option>
-		<option value="3577">3577, Saint's Robotics</option>
-		<option value="3785">3785, ROCK'EM SHOCK'EM ROBOTICS</option>
-		<option value="3853">3853, Pridetronics</option>
-		<option value="3925">3925, Circuit of Life</option>
-		<option value="4146">4146, Sabercats</option>
+		<option value="1157">1157, Landsharks</option>
+		<option value="1245">1245, MoHi Shazbots</option>
+		<option value="1303">1303, WYOHAZARD</option>
+		<option value="1332">1332, Swift</option>
+		<option value="1339">1339, AngelBotics</option>
+		<option value="1410">1410, The Kraken</option>
+		<option value="1583">1583, Ridge View Academy Rambotics</option>
+		<option value="1584">1584, Pirates</option>
+		<option value="1619">1619, Up-A-Creek Robotics</option>
+		<option value="1730">1730, Team Driven</option>
+		<option value="1799">1799, Wired Up!</option>
+		<option value="1977">1977, The PowerSquids</option>
+		<option value="2036">2036, The Black Knights</option>
+		<option value="2083">2083, Team BLITZ</option>
+		<option value="2240">2240, Brute Force</option>
+		<option value="2259">2259, 1/4 Twenties</option>
+		<option value="2261">2261, Casa Robotics</option>
+		<option value="2848">2848, ? ALL SPARKS ?</option>
+		<option value="2945">2945, Steel Mustangs</option>
+		<option value="2996">2996, Cougars Gone Wired</option>
+		<option value="3005">3005, RoboChargers</option>
+		<option value="3200">3200, Raptacon</option>
+		<option value="3288">3288, Punchers</option>
+		<option value="3374">3374, Jackson Hole RoboBroncs</option>
+		<option value="3648">3648, Sparta Robotica</option>
+		<option value="3729">3729, The Raiders</option>
+		<option value="3807">3807, Overland BlazerBots</option>
+		<option value="4068">4068, Palmer Ridge BEARbotics</option>
 		<option value="4153">4153, Project Y</option>
-		<option value="4183">4183, Bit Buckets</option>
-		<option value="4565">4565, Coyotes</option>
-		<option value="4603">4603, Leones Francés</option>
-		<option value="4792">4792, Desert Storm</option>
-		<option value="5059">5059, The Midnight Cicadas</option>
-		<option value="5539">5539, DVHS Cyborgs</option>
-		<option value="6060">6060, Circuit Serpents</option>
-		<option value="6127">6127, BHS Pumatrons</option>
-		<option value="6314">6314, DM Robotics The WolfPack</option>
-		<option value="6413">6413, Degrees of Freedom</option>
-		<option value="6482">6482, Wildcat Robotics</option>
-		<option value="6518">6518, JagBots</option>
-		<option value="6530">6530, Ra</option>
-		<option value="6560">6560, Charging Champions</option>
-		<option value="6585">6585, Hózhóogo Naasháa Doo (Walk in Beauty)</option>
-		<option value="6656">6656, Ryu Botics</option>
-		<option value="6871">6871, QC DogSquad</option>
-		<option value="6931">6931, The Red Company</option>
-		<option value="6968">6968, Team Pi</option>
-		<option value="7017">7017, Fellowship of the Gear</option>
-		<option value="7059">7059, Bot-E Builders</option>
-		<option value="7214">7214, Tiger-Ops Robotics</option>
+		<option value="4293">4293, Komodo</option>
+		<option value="4386">4386, Mecha-maniacs</option>
+		<option value="4388">4388, Ridgebotics</option>
+		<option value="4418">4418, Team IMPULSE</option>
+		<option value="4499">4499, The Highlanders</option>
+		<option value="4550">4550, Something's Bruin</option>
+		<option value="4593">4593, Rapid Acceleration</option>
+		<option value="4641">4641, HazMat Hawks</option>
+		<option value="4944">4944, The Hi Fives</option>
+		<option value="5126">5126, Electromagnetic Panthers (E.M.P.)</option>
+		<option value="5414">5414, Pearadox</option>
+		<option value="5493">5493, SMAbotics AG</option>
+		<option value="5657">5657, Rawhide Robotics</option>
+		<option value="5763">5763, Lightning Robotics</option>
+		<option value="5899">5899, FROST</option>
+		<option value="6459">6459, AG Robotik</option>
+		<option value="7243">7243, High Tech Early College</option>
+
 
     </select>
     </p>
-
+ 
       <font size="4">
-      <p>
-      <input type="checkbox" name="scale" >Scale</input>
-    </p>
-     <p>Auto 
+    <p>--------------------------------------------------------------------------</p>    
+     <p>AUTONOMOUS 
     <select name="Auto">
    	    <option value="none"> None</option>
 	    <option value="line"> Cross the line </option>
     	<option value="switch"> Switch </option> 
       	<option value="scale"> Scale </option> 
     </select>
-    <p>Climb 
-    <select name="climb">
-	    <option value="no"> No </option>
-    	<option value="yes"> Yes </option> 
-    </select>
+
+
     <br>
     </p>
+    <p>--------------------------------------------------------------------------</p>
     <p>
-   Number of power cubes in scale: <input type="number" name="PC_in_Scale" value=0 max=60 min=0 style="width:40px;"></input> <input type="button" onclick="PCSm()" value="-1"> <input type="button" onclick="PCSp()" value="+1">
+   Cubes in scale: <input type="number" name="PC_in_Scale" value=0 max=60 min=0 style="width:40px;"></input> <input type="button" onclick="PCSm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCSp()" style="width:60px;height:60px;font-size:20px" value="+1">
    </p>
-    
+    <p>
+   Cubes in switches: <input type="number" name="PC_in_Switches" value=0 max=60 min=0 style="width:40px;"></input> <input type="button" onclick="PCWm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCWp()" style="width:60px;height:60px;font-size:20px" value="+1">
+   </p>
+    <p>
+   Cubes in exchange: <input type="number" name="PC_in_Exchange" value=0 max=60 min=0 style="width:40px;"></input> <input type="button" onclick="PCEm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCEp()" style="width:60px;height:60px;font-size:20px" value="+1">
+   </p>
+       <p>--------------------------------------------------------------------------</p>
+    <p>END GAME/CLIMB
+    <select name="climb">
+	    <option value="No"> No </option>
+    	<option value="Yes"> Yes </option>
+        <option value="Lift_Other"> Lift Others </option> 
+    </select>    
     </font>
     <p>
-    Notes: <br><textarea name="notes" cols="40" rows="5" maxlength="200" style="position: relative; left:50px;"></textarea>
+    NOTES: <br><textarea name="notes" cols="40" rows="5" maxlength="200" style="position: relative; left:50px;"></textarea>
     </p>
     
 <! ********************************************************************************************
 					END OF CUSTOMIZATION SECTION, KEEP BUTTONS BELOW
  *********************************************************************************************>
 
-    <input type="button" style="position: relative; left:50px;height:150px;width:150px;font-size:20px" value="Save" onclick="doqr()"/>
+    <input type="button" style="position: relative; left:50px;height:150px;width:150px;font-size:20px" value="Save" onclick="doqr(true);"/>
+    <input type="button" style="position: relative; left:90px;height:150px;width:150px;font-size:20px" value="Reset Form" onclick="fmrst();"/>
 
-    <input name="Reset" type="reset" style="position: relative; left:90px;height:150px;width:150px;font-size:20px" onclick="document.qrinp.reset()" value="Clear"/>
- 
+
+    
+    
   </form>
 
       <canvas id="qrcanv"}>No Canvas Support?
