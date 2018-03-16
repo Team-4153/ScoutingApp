@@ -33,11 +33,13 @@
 			<Item Name="GetData.vi" Type="VI" URL="../GetData.vi"/>
 			<Item Name="AndOr.vi" Type="VI" URL="../AndOr.vi"/>
 			<Item Name="SelectMatchForPDF.vi" Type="VI" URL="../SelectMatchForPDF.vi"/>
+			<Item Name="GetTeamsFromMatch.vi" Type="VI" URL="../GetTeamsFromMatch.vi"/>
 		</Item>
 		<Item Name="Prep" Type="Folder">
 			<Item Name="FRCweb2iniTeamList.vi" Type="VI" URL="../FRCweb2iniTeamList.vi"/>
 			<Item Name="Flagstaff_TeamList.ini" Type="Document" URL="../data/Flagstaff_TeamList.ini"/>
 			<Item Name="Denver_TeamList.ini" Type="Document" URL="../data/Denver_TeamList.ini"/>
+			<Item Name="GetSchedule.vi" Type="VI" URL="../GetSchedule.vi"/>
 		</Item>
 		<Item Name="ScoutingMain.vi" Type="VI" URL="../ScoutingMain.vi"/>
 		<Item Name="Scouting.ini" Type="Document" URL="../Scouting.ini"/>
