@@ -47,6 +47,7 @@
 		</Item>
 		<Item Name="ScoutingMain.vi" Type="VI" URL="../ScoutingMain.vi"/>
 		<Item Name="Scouting.ini" Type="Document" URL="../Scouting.ini"/>
+		<Item Name="Scouting.ico" Type="Document" URL="../Scouting.ico"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
@@ -189,7 +190,8 @@
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
 				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/ScoutingApp/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{08513527-F014-418C-8D7B-E4DECE656AEE}</Property>
+				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/Scouting.ico</Property>
+				<Property Name="Source[0].itemID" Type="Str">{31FB3320-412D-4AC8-AA33-BE0AEE99AAA6}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/ScoutingMain.vi</Property>
