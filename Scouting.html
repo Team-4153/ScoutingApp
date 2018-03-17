@@ -937,20 +937,27 @@ function PCEm(){
 	    <option value="line"> Cross the line </option>
     	<option value="switch"> Switch </option> 
       	<option value="scale"> Scale </option> 
+        <option value="scale"> Multiples </option> 
     </select>
 
 
     <br>
     </p>
     <p>--------------------------------------------------------------------------</p>
+    <p>&nbsp;   </p>
+    <input type="number" name="PC_in_Scale" value=0 max=60 min=0 style="width:40px;">
+    CUBES IN SCALE
+  </input> 
+  <input type="button" onclick="PCSm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCSp()" style="width:60px;height:60px;font-size:20px" value="+1">
+    <p><input type="number" name="PC_in_Switches" value=0 max=60 min=0 style="width:40px;">
+      CUBES IN SWITCHES</input> 
+      <input type="button" onclick="PCWm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCWp()" style="width:60px;height:60px;font-size:20px" value="+1">
+ </p>
     <p>
-   Cubes in scale: <input type="number" name="PC_in_Scale" value=0 max=60 min=0 style="width:40px;"></input> <input type="button" onclick="PCSm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCSp()" style="width:60px;height:60px;font-size:20px" value="+1">
-   </p>
-    <p>
-   Cubes in switches: <input type="number" name="PC_in_Switches" value=0 max=60 min=0 style="width:40px;"></input> <input type="button" onclick="PCWm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCWp()" style="width:60px;height:60px;font-size:20px" value="+1">
-   </p>
-    <p>
-   Cubes in exchange: <input type="number" name="PC_in_Exchange" value=0 max=60 min=0 style="width:40px;"></input> <input type="button" onclick="PCEm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCEp()" style="width:60px;height:60px;font-size:20px" value="+1">
+      <input type="number" name="PC_in_Exchange" value=0 max=60 min=0 style="width:40px;">
+   </input> 
+   CUBES IN EXCHANGE
+   <input type="button" onclick="PCEm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCEp()" style="width:60px;height:60px;font-size:20px" value="+1">
    </p>
        <p>--------------------------------------------------------------------------</p>
     <p>END GAME/CLIMB
@@ -958,6 +965,7 @@ function PCEm(){
 	    <option value="No"> No </option>
     	<option value="Yes"> Yes </option>
         <option value="Lift_Other"> Lift Others </option> 
+        <option value="Lift_And_Climb"> Lift Others and climb </option> 
     </select>    
     </font>
     <p>

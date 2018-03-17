@@ -34,6 +34,7 @@
 			<Item Name="AndOr.vi" Type="VI" URL="../AndOr.vi"/>
 			<Item Name="SelectMatchForPDF.vi" Type="VI" URL="../SelectMatchForPDF.vi"/>
 			<Item Name="GetTeamsFromMatch.vi" Type="VI" URL="../GetTeamsFromMatch.vi"/>
+			<Item Name="TestQR2.vi" Type="VI" URL="../TestQR2.vi"/>
 		</Item>
 		<Item Name="Prep" Type="Folder">
 			<Item Name="FRCweb2iniTeamList.vi" Type="VI" URL="../FRCweb2iniTeamList.vi"/>
@@ -43,6 +44,7 @@
 		</Item>
 		<Item Name="ScoutingMain.vi" Type="VI" URL="../ScoutingMain.vi"/>
 		<Item Name="Scouting.ini" Type="Document" URL="../Scouting.ini"/>
+		<Item Name="SelectVideoMode.vi" Type="VI" URL="../SelectVideoMode.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
@@ -150,6 +152,7 @@
 				<Item Name="Path to URL.vi" Type="VI" URL="/&lt;vilib&gt;/printing/PathToURL.llb/Path to URL.vi"/>
 				<Item Name="Search and Replace Pattern.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Search and Replace Pattern.vi"/>
 				<Item Name="Generate Temporary File Path.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Generate Temporary File Path.vi"/>
+				<Item Name="High Resolution Relative Seconds.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/High Resolution Relative Seconds.vi"/>
 			</Item>
 			<Item Name="niimaqdx.dll" Type="Document" URL="niimaqdx.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -184,7 +187,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{9F857457-1A26-4A44-969A-097A09BCC7D6}</Property>
-				<Property Name="Bld_version.build" Type="Int">10</Property>
+				<Property Name="Bld_version.build" Type="Int">11</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">Scouting.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/ScoutingApp/Scouting.exe</Property>
