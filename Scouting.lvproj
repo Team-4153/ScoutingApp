@@ -37,6 +37,7 @@
 			<Item Name="TestQR2.vi" Type="VI" URL="../TestQR2.vi"/>
 			<Item Name="SelectVideoMode.vi" Type="VI" URL="../SelectVideoMode.vi"/>
 			<Item Name="QRstates.ctl" Type="VI" URL="../QRstates.ctl"/>
+			<Item Name="CropState.ctl" Type="VI" URL="../CropState.ctl"/>
 		</Item>
 		<Item Name="Prep" Type="Folder">
 			<Item Name="FRCweb2iniTeamList.vi" Type="VI" URL="../FRCweb2iniTeamList.vi"/>
