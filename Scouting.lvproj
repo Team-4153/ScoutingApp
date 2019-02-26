@@ -40,7 +40,6 @@
 			<Item Name="CropState.ctl" Type="VI" URL="../CropState.ctl"/>
 		</Item>
 		<Item Name="Prep" Type="Folder">
-			<Item Name="FRCweb2iniTeamList.vi" Type="VI" URL="../FRCweb2iniTeamList.vi"/>
 			<Item Name="GetTeamListFromFRC.vi" Type="VI" URL="../GetTeamListFromFRC.vi"/>
 			<Item Name="Flagstaff_TeamList.ini" Type="Document" URL="../data/Flagstaff_TeamList.ini"/>
 			<Item Name="Denver_TeamList.ini" Type="Document" URL="../data/Denver_TeamList.ini"/>

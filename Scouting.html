@@ -19,7 +19,7 @@ function doqr(save) {
 //***************************************************************************************************************************************** 
 //										 MODIFY THIS LINE TO INCLUDE ALL FORM ANSWERS IN QR CODE 	
 //**************************************************************************************************************************************>
-    qf = genframe("Team #: " + d.qrinp.tnum.value +"\nAuto: " + d.qrinp.Auto.value + "\n Cubes in Scale: " + d.qrinp.PC_in_Scale.value + "\n Cubes in Switches: " + d.qrinp.PC_in_Switches.value + "\n Cubes in Exchange: " + d.qrinp.PC_in_Exchange.value + "\n End Game/Climb: " + d.qrinp.climb.value + "\nNotes: " + d.qrinp.notes.value);
+    qf = genframe("Team #: " + d.qrinp.tnum.value +"\n Start Position: " + d.qrinp.Start_Position.value + "\n Sandstorm Game Piece Positionned: " + d.qrinp.SandstormPiece.value + "\n Low Hatches: " + d.qrinp.Low_Hatches.value + "\n Rocket Hatches: " + d.qrinp.High_Hatches.value + "\n Low Cargos: " + d.qrinp.Low_Cargo.value + "\n Rocket Cargos: " + d.qrinp.Rocket_Cargo.value + "\n HAB: " + d.qrinp.climb.value + "\n Notes: " + d.qrinp.notes.value);
 
 //***************************************************************************************************************************************** 
 //										 DO NOT MODIFY ANY OTHER JAVASCRIPT CODE
@@ -830,24 +830,31 @@ function setupqr(){
 //*****************************************************************************************************
 						
 function PCSp(){
-	document.qrinp.PC_in_Scale.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Scale.valueAsNumber+1));
+	document.qrinp.Low_Hatches.value=Math.min(60,Math.max(0,document.qrinp.Low_Hatches.valueAsNumber+1));
 }
 function PCSm(){
-	document.qrinp.PC_in_Scale.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Scale.valueAsNumber-1));
+	document.qrinp.Low_Hatches.value=Math.min(60,Math.max(0,document.qrinp.Low_Hatches.valueAsNumber-1));
 }
 
 function PCWp(){
-	document.qrinp.PC_in_Switches.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Switches.valueAsNumber+1));
+	document.qrinp.Low_Cargo.value=Math.min(60,Math.max(0,document.qrinp.Low_Cargo.valueAsNumber+1));
 }
 function PCWm(){
-	document.qrinp.PC_in_Switches.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Switches.valueAsNumber-1));
+	document.qrinp.Low_Cargo.value=Math.min(60,Math.max(0,document.qrinp.Low_Cargo.valueAsNumber-1));
 }
 
 function PCEp(){
-	document.qrinp.PC_in_Exchange.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Exchange.valueAsNumber+1));
+	document.qrinp.Rocket_Cargo.value=Math.min(60,Math.max(0,document.qrinp.Rocket_Cargo.valueAsNumber+1));
 }
 function PCEm(){
-	document.qrinp.PC_in_Exchange.value=Math.min(60,Math.max(0,document.qrinp.PC_in_Exchange.valueAsNumber-1));
+	document.qrinp.Rocket_Cargo.value=Math.min(60,Math.max(0,document.qrinp.Rocket_Cargo.valueAsNumber-1));
+}
+
+function RHp(){
+	document.qrinp.High_Hatches.value=Math.min(60,Math.max(0,document.qrinp.High_Hatches.valueAsNumber+1));
+}
+function RHm(){
+	document.qrinp.High_Hatches.value=Math.min(60,Math.max(0,document.qrinp.High_Hatches.valueAsNumber-1));
 }
 //*****************************************************************************************************
 //								END OF CUSTOM FUNCTIONS
@@ -872,81 +879,88 @@ function PCEm(){
     <p><font size="6"><strong>Team number:</strong></font>
     <select name="tnum" style="font-size:20px; font-weight:normal">
    	   	<option value="">Select team number </option>
-		<option value="148">148, Robowranglers</option>
-		<option value="1296">1296, Full Metal Jackets</option>
-		<option value="1817">1817, Llano Estacado RoboRaiders</option>
+		<option value="118">118, Robonauts</option>
+		<option value="457">457, ?? Grease Monkeys ??</option>
+		<option value="1164">1164, Project NEO</option>
 		<option value="2613">2613, Protobots</option>
-		<option value="2657">2657, Team Thundercats</option>
-		<option value="3037">3037, LOBOTS</option>
-		<option value="3310">3310, Black Hawk Robotics</option>
+		<option value="3043">3043, Dragons</option>
 		<option value="3366">3366, Plowbots</option>
+		<option value="3847">3847, Spectrum -??</option>
+		<option value="4063">4063, TriKzR4Kidz</option>
 		<option value="4153">4153, Project Y</option>
 		<option value="4301">4301, SM Energy New Tech Narcissists</option>
-		<option value="4641">4641, United</option>
-		<option value="4694">4694, Atomic Armadillos</option>
+		<option value="4328">4328, Furious Falcons</option>
+		<option value="4378">4378, Dark Knights</option>
 		<option value="4717">4717, Westerner Robotics</option>
-		<option value="4734">4734, The Iron Plainsmen</option>
 		<option value="4799">4799, Lazbuddie Robotics</option>
-		<option value="5212">5212, TAMSformers Robotics </option>
-		<option value="5417">5417, Eagle Robotics</option>
+		<option value="5047">5047, DV CONQUISTABOTS</option>
 		<option value="5613">5613, ThunderDogs</option>
 		<option value="5783">5783, RoboDucks</option>
 		<option value="5866">5866, Fe [Iron] Tigers</option>
-		<option value="5888">5888, M.E.T.A. Robotics</option>
-		<option value="6133">6133, b a s h</option>
-		<option value="6315">6315, Code Error 404</option>
+		<option value="6144">6144, Angelbots Gold</option>
+		<option value="6682">6682, A.S.T.R.O. Vikings</option>
 		<option value="6974">6974, Zia Robotics</option>
 		<option value="6993">6993, Dragons </option>
 		<option value="7271">7271, Hanger 84 Robotics</option>
-		<option value="7534">7534, Dragonflies</option>
+		<option value="7533">7533, OSO-TECH</option>
 		<option value="7540">7540, The Sandia Singularities</option>
-		<option value="7573">7573, MULEBOTICS</option>
 		<option value="7649">7649, Feles Numine</option>
+		<option value="7750">7750, Alpine robo bucks</option>
 </select>
     </p>
  
       <font size="4">
     <p>--------------------------------------------------------------------------</p>    
-     <p>AUTONOMOUS 
-    <select name="Auto">
-   	    <option value="none"> None</option>
-	    <option value="line"> Cross the line </option>
-    	<option value="switch"> Switch </option> 
-      	<option value="scale"> Scale </option> 
-        <option value="scale"> Multiples </option> 
-    </select>
-
-
-    <br>
+     <p style="font-size:20px" ><b> Sandstorm </b>
     </p>
+       Starting Position  <select name="Start_Position">
+   	    <option value="level 1"> Level 1</option>
+	    <option value="level 2"> Level 2</option>
+    </select>
+    <p>
+     Game piece placed <select name="SandstormPiece">
+   	    <option value="None"> None </option>
+	    <option value="Hatch"> Hatch </option>
+        <option value="Cargo"> Cargo </option>
+    </select>
+	</p>
+
     <p>--------------------------------------------------------------------------</p>
-    <p>&nbsp;   </p>
-    <input type="number" name="PC_in_Scale" value=0 max=60 min=0 style="width:40px;">
-    CUBES IN SCALE
+  <p style="font-size:20px" ><b> Teleop </b>
+    </p>
+    <input type="number" name="Low_Hatches" value=0 max=60 min=0 style="width:40px;">
+    Lower Level Hatches
   </input> 
   <input type="button" onclick="PCSm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCSp()" style="width:60px;height:60px;font-size:20px" value="+1">
-    <p><input type="number" name="PC_in_Switches" value=0 max=60 min=0 style="width:40px;">
-      CUBES IN SWITCHES</input> 
+  <p>
+    <input type="number" name="High_Hatches" value=0 max=60 min=0 style="width:40px;">
+    Rocket Hatches
+  </input> 
+  <input type="button" onclick="RHm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="RHp()" style="width:60px;height:60px;font-size:20px" value="+1">
+</p>
+    <p><input type="number" name="Low_Cargo" value=0 max=60 min=0 style="width:40px;">
+      Lower Level Cargos </input> 
       <input type="button" onclick="PCWm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCWp()" style="width:60px;height:60px;font-size:20px" value="+1">
  </p>
     <p>
-      <input type="number" name="PC_in_Exchange" value=0 max=60 min=0 style="width:40px;">
+      <input type="number" name="Rocket_Cargo" value=0 max=60 min=0 style="width:40px;">
    </input> 
-   CUBES IN EXCHANGE
+Rocket Cargos
    <input type="button" onclick="PCEm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCEp()" style="width:60px;height:60px;font-size:20px" value="+1">
    </p>
        <p>--------------------------------------------------------------------------</p>
-    <p>END GAME/CLIMB
+    <p style="font-size:20px" ><b> End Game</b>
+    </p>
     <select name="climb">
-	    <option value="No"> No </option>
-    	<option value="Yes"> Yes </option>
-        <option value="Lift_Other"> Lift Others </option> 
-        <option value="Lift_And_Climb"> Lift Others and climb </option> 
+	    <option value="None"> None </option>
+    	<option value="Level 1"> Level 1 </option>
+        <option value="Level 2">  Level 2 </option> 
+        <option value="Level 3"> Level 3 </option> 
     </select>    
     </font>
     <p>
     NOTES: <br><textarea name="notes" cols="40" rows="5" maxlength="200" style="position: relative; left:50px;"></textarea>
-    </p>
+</p>
     
 <! ********************************************************************************************
 					END OF CUSTOMIZATION SECTION, KEEP BUTTONS BELOW
