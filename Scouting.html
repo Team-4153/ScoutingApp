@@ -19,10 +19,10 @@ function doqr(save) {
 //***************************************************************************************************************************************** 
 //										 MODIFY THIS LINE TO INCLUDE ALL FORM ANSWERS IN QR CODE 	
 //**************************************************************************************************************************************>
-    qf = genframe("Team #: " + d.qrinp.tnum.value +"\n Start Position: " + d.qrinp.Start_Position.value + "\n Sandstorm Game Piece Positionned: " + d.qrinp.SandstormPiece.value + "\n Low Hatches: " + d.qrinp.Low_Hatches.value + "\n Rocket Hatches: " + d.qrinp.High_Hatches.value + "\n Low Cargos: " + d.qrinp.Low_Cargo.value + "\n Rocket Cargos: " + d.qrinp.Rocket_Cargo.value + "\n HAB: " + d.qrinp.climb.value + "\n Notes: " + d.qrinp.notes.value);
+    qf = genframe("Team #: " + d.qrinp.tnum.value +"\n Start Position: " + d.qrinp.Start_Position.value + "\n Sandstorm Game Piece Positionned: " + d.qrinp.SandstormPiece.value + "\n Low Hatches: " + d.qrinp.Low_Hatches.value + "\n Rocket Hatches: " + d.qrinp.High_Hatches.value + "\n Low Cargos: " + d.qrinp.Low_Cargo.value + "\n Rocket Cargos: " + d.qrinp.Rocket_Cargo.value + "\n Defense Capable: " + d.qrinp.Defense.value + "\n HAB: " + d.qrinp.climb.value + "\n Notes: " + d.qrinp.notes.value);
 
 //***************************************************************************************************************************************** 
-//										 DO NOT MODIFY ANY OTHER JAVASCRIPT CODE
+//										 DO NOT MODIFY ANY OTHER JAVASCRIPT CODE  
 //**************************************************************************************************************************************>
     qrc.lineWidth=1;
 
@@ -948,6 +948,12 @@ function RHm(){
 Rocket Cargos
    <input type="button" onclick="PCEm()" style="width:60px;height:60px;font-size:20px" value="-1"> <input type="button" onclick="PCEp()" style="width:60px;height:60px;font-size:20px" value="+1">
    </p>
+    <p>
+     Defense Capable <select name="Defense">
+   	    <option value="No"> No </option>
+	    <option value="Yes"> Yes </option>
+    </select>
+	</p>
        <p>--------------------------------------------------------------------------</p>
     <p style="font-size:20px" ><b> End Game</b>
     </p>
